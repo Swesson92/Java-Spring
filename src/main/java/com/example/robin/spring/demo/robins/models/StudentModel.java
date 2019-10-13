@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class studentModel {
+public class StudentModel {
 
     private Long id;
     private String name;
@@ -19,12 +19,12 @@ public class studentModel {
     private int age;
 
 
-    public List<studentModel> studentModelList(List<Student> students) {
+    public List<StudentModel> studentModelList(List<Student> students) {
 
-        List<studentModel> models = new ArrayList<>();
+        List<StudentModel> models = new ArrayList<>();
 
         students.forEach(student -> {
-            studentModel studentModel = new studentModel();
+            StudentModel studentModel = new StudentModel();
             studentModel.id = student.getId();
             studentModel.name = student.getName();
             studentModel.lastName = student.getLastName();
