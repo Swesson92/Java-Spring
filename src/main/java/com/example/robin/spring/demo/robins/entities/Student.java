@@ -24,8 +24,12 @@ public class Student implements Serializable {
     private String lastName;
     @Column(name = "age")
     private int age;
+    @Column(name = "topic")
+    private String topic;
 
-
+    @ManyToOne
+    @JoinColumn(name = "teacher", referencedColumnName = "id")
+    private Teacher teacher;
 
     public Long getId() {
         return id;
