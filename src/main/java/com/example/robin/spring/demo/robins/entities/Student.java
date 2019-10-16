@@ -15,7 +15,7 @@ public class Student implements Serializable {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name = "name")
@@ -28,7 +28,7 @@ public class Student implements Serializable {
     private String topic;
 
     @ManyToOne
-    @JoinColumn(name = "teacher", referencedColumnName = "id")
+    @JoinColumn
     private Teacher teacher;
 
     public Long getId() {

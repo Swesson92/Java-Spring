@@ -3,6 +3,7 @@ package com.example.robin.spring.demo.robins.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Getter
@@ -16,7 +17,7 @@ public class Teacher {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name = "teacher")
@@ -28,8 +29,10 @@ public class Teacher {
     @Column(name = "subject")
     private String subject;
 
-    @JoinColumn(name = "student", referencedColumnName = "id")
-    private Student student;
+
+
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    private Set<Student> students;
 
 
 
