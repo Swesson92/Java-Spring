@@ -28,6 +28,8 @@ public class Teacher {
     @Column(name = "subject")
     private String subject;
 
+    @JoinColumn(name = "student", referencedColumnName = "id")
+    private Student student;
 
 
 
