@@ -3,10 +3,6 @@ package com.example.robin.spring.demo.robins.services;
 import com.example.robin.spring.demo.robins.entities.Student;
 import com.example.robin.spring.demo.robins.models.StudentModel;
 import com.example.robin.spring.demo.robins.repository.StudentRepository;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -14,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class StudentService implements StudentServiceInterface, UserDetailsService {
+public class StudentService implements StudentServiceInterface {
 
 
     private final StudentRepository repository;
@@ -52,21 +48,6 @@ public class StudentService implements StudentServiceInterface, UserDetailsServi
         }
         return studentModelList;
 
-    }
-
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Student student = FindStudentByUserName(username);
-
-        org.springframework.security.core.userdetails.User.UserBuilder builder = null;
-        if (student != null) {
-            builder = org.springframework.security.core.userdetails.User.withUsername(username);
-            builder.password(new BCryptPasswordEncoder().encode(student.getPassword()));
-            builder.roles(student.getRole());
-        } else {
-            throw new UsernameNotFoundException("User not found.");
-        }
-
-        return builder.build();
     }
 
 }

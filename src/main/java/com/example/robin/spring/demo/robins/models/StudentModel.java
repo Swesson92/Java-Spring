@@ -44,6 +44,9 @@ public class StudentModel implements Serializable {
             studentModel.lastName = student.getLastName();
             studentModel.age = student.getAge();
             studentModel.topic = student.getTopic();
+            studentModel.role = student.getRole();
+            studentModel.password = student.getPassword();
+            studentModel.email = student.getEmail();
             models.add(studentModel);
         });
 

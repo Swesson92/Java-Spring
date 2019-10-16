@@ -1,6 +1,6 @@
 package com.example.robin.spring.demo.robins.controllers;
 
-import com.example.robin.spring.demo.robins.entities.Student;
+
 import com.example.robin.spring.demo.robins.models.StudentModel;
 import com.example.robin.spring.demo.robins.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
