@@ -28,9 +28,9 @@ public class Student implements Serializable {
     @Column(name = "topic")
     private String topic;
 
-  //  @ManyToOne
-  //  @JoinColumn
-  //  private Teacher teacher;
+    @ManyToOne
+    @JoinColumn
+    private Teacher teacher;
 
     public Student(StudentModel studentModel) {
         this.id = studentModel.getId();

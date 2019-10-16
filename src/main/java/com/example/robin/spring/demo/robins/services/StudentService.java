@@ -5,6 +5,7 @@ import com.example.robin.spring.demo.robins.models.StudentModel;
 import com.example.robin.spring.demo.robins.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,12 @@ public class StudentService implements StudentServiceInterface {
         return new StudentModel(repository.save(student));
     }
 
-    private List<StudentModel> convertCompanyListToModelList(List<Student> studentList) {
+
+    public void deleteStudent(@PathVariable Long id){
+        repository.deleteById(id);
+    }
+
+    private List<StudentModel> convertStudentListToModelList(List<Student> studentList) {
         List<StudentModel> studentModelList = new ArrayList<>();
         for (Student student : studentList) {
             studentModelList.add(new StudentModel(student));

@@ -23,7 +23,7 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<List<StudentModel>>getAllStudents() {
 
         List<StudentModel> students = studentService.findAllStudents();
@@ -35,6 +35,15 @@ public class StudentController {
     public ResponseEntity<StudentModel> createStudent(@RequestBody StudentModel studentModel){
         StudentModel student = studentService.createStudent(studentModel);
         return new ResponseEntity<>(student, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteStudent(@PathVariable Long id) {
+            studentService.deleteStudent(id);
+            ResponseEntity responseEntity = new ResponseEntity<String>("Student Deleted", HttpStatus.OK);
+            return responseEntity;
+
+
     }
 
 

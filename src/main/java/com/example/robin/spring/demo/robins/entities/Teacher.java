@@ -31,8 +31,8 @@ public class Teacher {
 
 
 
- //   @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
- //   private Set<Student> students;
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    private Set<Student> students;
 
 
 
