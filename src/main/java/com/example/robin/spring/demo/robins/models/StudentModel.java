@@ -2,7 +2,6 @@ package com.example.robin.spring.demo.robins.models;
 
 import com.example.robin.spring.demo.robins.entities.Student;
 import lombok.*;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,30 +13,34 @@ import java.util.List;
 public class StudentModel implements Serializable {
 
     private Long id;
-    private String name;
+    private String username;
     private String lastName;
     private int age;
     private String topic;
+    private String email;
+    private String password;
+    private String role;
 
     public StudentModel(Student student){
         this.id = student.getId();
-        this.name = student.getName();
+        this.username = student.getUsername();
         this.lastName = student.getLastName();
         this.age = student.getAge();
         this.topic = student.getTopic();
+        this.email = student.getEmail();
+        this.password = student.getPassword();
+        this.role = student.getRole();
     }
 
     public StudentModel() {}
 
 
     public List<StudentModel> studentModelList(List<Student> students) {
-
         List<StudentModel> models = new ArrayList<>();
-
         students.forEach(student -> {
             StudentModel studentModel = new StudentModel();
             studentModel.id = student.getId();
-            studentModel.name = student.getName();
+            studentModel.username = student.getUsername();
             studentModel.lastName = student.getLastName();
             studentModel.age = student.getAge();
             studentModel.topic = student.getTopic();
@@ -55,12 +58,12 @@ public class StudentModel implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getLastName() {
@@ -85,5 +88,29 @@ public class StudentModel implements Serializable {
 
     public void setTopic(String topic) {
         this.topic = topic;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

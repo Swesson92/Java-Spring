@@ -25,9 +25,7 @@ public class StudentController {
 
     @GetMapping("/getAll")
     public ResponseEntity<List<StudentModel>>getAllStudents() {
-
         List<StudentModel> students = studentService.findAllStudents();
-
         return new ResponseEntity<>(students, HttpStatus.OK);
     }
 
@@ -42,8 +40,6 @@ public class StudentController {
             studentService.deleteStudent(id);
             ResponseEntity responseEntity = new ResponseEntity<String>("Student Deleted", HttpStatus.OK);
             return responseEntity;
-
-
     }
 
 

@@ -1,7 +1,6 @@
 package com.example.robin.spring.demo.robins.entities;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -28,12 +27,7 @@ public class Teacher {
     private int age;
     @Column(name = "subject")
     private String subject;
-
-
-
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     private Set<Student> students;
-
-
 
 }
