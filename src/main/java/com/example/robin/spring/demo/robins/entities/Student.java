@@ -1,6 +1,7 @@
 package com.example.robin.spring.demo.robins.entities;
 
 
+import com.example.robin.spring.demo.robins.models.StudentModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -27,9 +28,19 @@ public class Student implements Serializable {
     @Column(name = "topic")
     private String topic;
 
-    @ManyToOne
-    @JoinColumn
-    private Teacher teacher;
+  //  @ManyToOne
+  //  @JoinColumn
+  //  private Teacher teacher;
+
+    public Student(StudentModel studentModel) {
+        this.id = studentModel.getId();
+        this.name = studentModel.getName();
+        this.lastName = studentModel.getLastName();
+        this.age = studentModel.getAge();
+        this.topic = studentModel.getTopic();
+    }
+
+    public Student() {}
 
     public Long getId() {
         return id;
@@ -61,5 +72,13 @@ public class Student implements Serializable {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 }
